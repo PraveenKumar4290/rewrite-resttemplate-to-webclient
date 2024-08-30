@@ -1,0 +1,11 @@
+type: spec.openrewrite.org/v1beta/recipe
+name: com.example.spring_rewrite_resttemplate.util.RestTemplateToWebClientRecipe
+displayName: Refactoring rest-template to webclient
+description: Refactoring rest-template to webclient.
+tags:
+  - spring
+  - boot
+recipeList:
+  - org.openrewrite.java.ChangeType:
+      methodPattern: org.springframework.web.client.RestTemplate
+      newMethodName: org.springframework.web.reactive.function.client.WebClient
