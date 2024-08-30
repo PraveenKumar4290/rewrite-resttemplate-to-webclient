@@ -26,16 +26,21 @@ class SpringRewriteRestTemplateApplicationTests implements RewriteTest {
                 java(
                         """
                                 import org.springframework.web.client.RestTemplate;
+
                                 public class DemoService{
+    
                                     private final RestTemplate restTemplate = new RestTemplate();
+
                                 }
                                 """,
                         """  
                                 import org.springframework.web.client.RestTemplate;
                                 import org.springframework.web.reactive.function.client.WebClient;
-
+                                
                                 public class DemoService{
+    
                                     private final RestTemplate restTemplate = WebClient.create();
+    
                                 }
                                 """
                 )
