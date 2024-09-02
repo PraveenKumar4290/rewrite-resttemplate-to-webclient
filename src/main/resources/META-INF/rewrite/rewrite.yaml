@@ -7,5 +7,11 @@ tags:
   - boot
 recipeList:
   - org.openrewrite.java.ChangeType:
-      methodPattern: org.springframework.web.client.RestTemplate
-      newMethodName: org.springframework.web.reactive.function.client.WebClient
+      oldFullyQualifiedTypeName: org.springframework.web.client.RestTemplate
+      newFullyQualifiedTypeName: org.springframework.web.reactive.function.client.WebClient
+  - org.openrewrite.java.ChangeVariableName:
+      oldName: restTemplate
+      newName: wecClient
+  - org.openrewrite.java.ChangeFieldType:
+      oldFullyQualifiedTypeName: org.springframework.web.client.RestTemplate
+      newFullyQualifiedTypeName: org.springframework.web.reactive.function.client.WebClient
